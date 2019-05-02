@@ -2,32 +2,25 @@
 using namespace std;
 
 int main(){
-	double i,s = 4,p = 0,j = 1,a = 1;
-	
-	for(i = 1; i <= 99;i+=2,j++)
-	{
-		p = p+s/i;
-		if(a == 1)
-		{
-			cout << s;
-			a = 2;	
-		}
-		else if(a == 2)
-		{
-			cout << s<<"/"<<i;
-			a = 3;
-		}
-		else if(a == 3)
-		{
-			cout <<"+"<< s<<"/"<<i;
-			a = 2;
-		}
-		s = s*-1;
-		if(j == 10)
-		{
-			cout << endl;
-			j = 0;
-		}
-	} 
-	 cout <<"="<<p;
-} 
+        bool lt_switch = true;
+        int child,lt;
+        int lt_total = 0;
+        for(lt = 1;lt <= 100;lt++)
+        {
+            for(child = 1;child <= 100;child++)
+            {
+                if(lt % child == 0)
+                {
+                    if(lt_switch == true)
+                    lt_switch = false;
+                    else
+                        lt_switch = true;
+                }
+            }
+            if(lt_switch)
+                lt_total++;
+            child = 1;
+            lt_switch = true;
+        }
+        cout<<lt_total;
+}
